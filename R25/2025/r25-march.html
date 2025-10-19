@@ -10,6 +10,7 @@
     .container { max-width:1200px; margin:0 auto; }
     h1 { text-align:center; margin-bottom:30px; color:#3b82f6; font-size:2.5rem; }
     h2 { color:#94a3b8; margin-bottom:20px; font-size:1.5rem; }
+    .subtitle { text-align:center; color:#94a3b8; font-size:1.2rem; margin-top:-20px; margin-bottom:30px; font-weight:400; }
     
     .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-bottom:40px; }
     .metric-card { background:rgba(26,35,53,0.6); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:20px; text-align:center; }
@@ -66,21 +67,22 @@
 <body>
 <div class="container">
     <h1>📈 March 2025 Dashboard</h1>
+    <div class="subtitle">R25 Strategy</div>
     
     <div class="metrics">
-        <div class="metric-card"><div class="metric-label">Win Rate (Decisive Trades)</div><div class="metric-value green">82.4%</div></div>
-        <div class="metric-card"><div class="metric-label">Total Trades</div><div class="metric-value">19</div></div>
-        <div class="metric-card"><div class="metric-label">Wins</div><div class="metric-value green">14</div></div>
+        <div class="metric-card"><div class="metric-label">Win Rate (Decisive Trades)</div><div class="metric-value green">70.0%</div></div>
+        <div class="metric-card"><div class="metric-label">Total Trades</div><div class="metric-value">10</div></div>
+        <div class="metric-card"><div class="metric-label">Wins</div><div class="metric-value green">7</div></div>
         <div class="metric-card"><div class="metric-label">Losses</div><div class="metric-value red">3</div></div>
-        <div class="metric-card"><div class="metric-label">Break Even</div><div class="metric-value yellow">2</div></div>
+        <div class="metric-card"><div class="metric-label">Break Even</div><div class="metric-value yellow">0</div></div>
     </div>
     
     <div class="summary">
-        <div class="pnl-line positive">Monthly P&L: +11%</div>
+        <div class="pnl-line positive">Monthly P&L: +4%</div>
         <div class="stats-line">Based on 1% Risk Per Trade (Decisive Trades Only)</div>
         <div style="margin: 20px 0; border-top: 1px solid rgba(255,255,255,0.1);"></div>
-        <div class="stats-line"><span class="wins">Wins: 14</span> | <span class="losses">Losses: 3</span> | <span class="be">Break Even: 2</span></div>
-        <div class="stats-line">Total Trades: 19</div>
+        <div class="stats-line"><span class="wins">Wins: 7</span> | <span class="losses">Losses: 3</span> | <span class="be">Break Even: 0</span></div>
+        <div class="stats-line">Total Trades: 10</div>
     </div>
     
     
@@ -100,36 +102,36 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>AUDCAD</td>
-                            <td>4</td>
-                            <td>14:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/EfDZVTyU/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>NZDCAD</td>
-                            <td>4</td>
-                            <td>10:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/N8hvwzJ7/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>USDJPY</td>
-                            <td>5</td>
+                            <td>AUDCHF</td>
+                            <td>3</td>
                             <td>6:00</td>
                             <td>Short</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/MowQxATK/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/QJEUKqwh/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
-                            <td>AUDJPY</td>
-                            <td>10</td>
-                            <td>10:00</td>
+                            <td>CHFJPY</td>
+                            <td>7</td>
+                            <td>6:00</td>
                             <td>Short</td>
+                            <td class="outcome-L">L</td>
+                            <td><a href="https://www.tradingview.com/x/9XIPMJio/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                        </tr>
+                        <tr>
+                            <td>EURAUD</td>
+                            <td>10</td>
+                            <td>14:00</td>
+                            <td>Long</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/wvzBdsZ2/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/68StOvJx/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                        </tr>
+                        <tr>
+                            <td>EURNZD</td>
+                            <td>10</td>
+                            <td>14:00</td>
+                            <td>Long</td>
+                            <td class="outcome-W">W</td>
+                            <td><a href="https://www.tradingview.com/x/zV5Zxtda/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
                             <td>GBPAUD</td>
@@ -137,7 +139,7 @@
                             <td>14:00</td>
                             <td>Long</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/ebvX2spk/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/MVUd0M3O/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
                             <td>NZDJPY</td>
@@ -145,111 +147,39 @@
                             <td>10:00</td>
                             <td>Short</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/ZOOZB3cV/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/FqP0QfuS/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
-                            <td>USDCAD</td>
-                            <td>10</td>
-                            <td>6:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/em2Hb3ul/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>NZDUSD</td>
-                            <td>12</td>
-                            <td>6:00</td>
-                            <td>Short</td>
-                            <td class="outcome-L">L</td>
-                            <td><a href="https://www.tradingview.com/x/q6O9wSMj/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>GBPCHF</td>
-                            <td>13</td>
-                            <td>14:00</td>
-                            <td>Long</td>
-                            <td class="outcome-BE">BE</td>
-                            <td><a href="https://www.tradingview.com/x/vWXs1PAw/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>GBPUSD</td>
-                            <td>17</td>
+                            <td>AUDCAD</td>
+                            <td>11</td>
                             <td>10:00</td>
                             <td>Long</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/J5JUbzHw/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/QsA2YtBE/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
-                            <td>AUDCHF</td>
-                            <td>19</td>
-                            <td>6:00</td>
-                            <td>Short</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/yH5ylbWH/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>USDCAD</td>
-                            <td>21</td>
+                            <td>NZDCAD</td>
+                            <td>11</td>
                             <td>6:00</td>
                             <td>Long</td>
                             <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/Eo5FCspW/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/FdnihfNz/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
-                            <td>AUDJPY</td>
-                            <td>24</td>
-                            <td>10:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/URvzBQ7B/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>CHFJPY</td>
-                            <td>24</td>
-                            <td>14:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/yj5WUrVV/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>GBPJPY</td>
-                            <td>24</td>
-                            <td>10:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/ZeYr9raV/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>AUDUSD</td>
-                            <td>26</td>
-                            <td>6:00</td>
-                            <td>Long</td>
-                            <td class="outcome-BE">BE</td>
-                            <td><a href="https://www.tradingview.com/x/90KvhA09/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>AUDUSD</td>
+                            <td>NZDCHF</td>
                             <td>27</td>
                             <td>6:00</td>
                             <td>Long</td>
                             <td class="outcome-L">L</td>
-                            <td><a href="https://www.tradingview.com/x/r724KDvO/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/3iX2IHLX/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                         <tr>
-                            <td>GBPNZD</td>
-                            <td>27</td>
-                            <td>10:00</td>
+                            <td>EURUSD</td>
+                            <td>28</td>
+                            <td>6:00</td>
                             <td>Short</td>
                             <td class="outcome-L">L</td>
-                            <td><a href="https://www.tradingview.com/x/VFGRmP9v/" target="_blank" class="chart-link">📊 View Chart</a></td>
-                        </tr>
-                        <tr>
-                            <td>NZDJPY</td>
-                            <td>27</td>
-                            <td>6:00</td>
-                            <td>Long</td>
-                            <td class="outcome-W">W</td>
-                            <td><a href="https://www.tradingview.com/x/Sot8YbWJ/" target="_blank" class="chart-link">📊 View Chart</a></td>
+                            <td><a href="https://www.tradingview.com/x/raloY1Kp/" target="_blank" class="chart-link">📊 View Chart</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -257,7 +187,7 @@
         </div>
     
     <div class="footer">
-        Generated on 28/09/2025 | Trading Performance Dashboard
+        Generated on 19/10/2025 | Trading Performance Dashboard
     </div>
 </div>
 </body>
