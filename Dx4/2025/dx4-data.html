@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dx4 Data - Price Action 101</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(ellipse at center, #121212 0%, #000000 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header with back button */
+        .page-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #00f0ff, #ff00cc);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00f0ff, #ff00cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.3));
+                text-shadow: 0 0 10px #00f0ff;
+            }
+            to { 
+                filter: drop-shadow(0 0 30px rgba(255, 0, 204, 0.6));
+                text-shadow: 0 0 20px #ff00cc;
+            }
+        }
+
+        .main-container {
+            background: #111;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+            border: 1px solid #222;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0a, #121212);
+            color: #f8fafc;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00f0ff, #ff00cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.8;
+            color: #00f0ff;
+        }
+
+        .content-section {
+            padding: 40px;
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .month-card {
+            background: #121212;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .month-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .month-card:hover::before {
+            left: 100%;
+        }
+
+        .month-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #00f0ff;
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.2);
+        }
+
+        .month-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00f0ff, #ff00cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .month-subtitle {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .month-btn {
+            background: linear-gradient(45deg, #00f0ff, #ff00cc);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+        }
+
+        .month-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .info-section {
+            padding: 30px 40px;
+            background: #111;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .info-text {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .months-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .info-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .months-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header with Back Button -->
+        <div class="page-header">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1 class="page-title">Dx4 Data</h1>
+        </div>
+
+        <div class="main-container">
+            <div class="header">
+                <h1>Dx4 Strategy Data</h1>
+                <p>Monthly performance analysis and trade statistics</p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Select Month to View Data</h2>
+                
+                <div class="months-grid">
+                    <div class="month-card" onclick="window.location.href='dx4-january.html'">
+                        <div class="month-name">January</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-february.html'">
+                        <div class="month-name">February</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-march.html'">
+                        <div class="month-name">March</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-april.html'">
+                        <div class="month-name">April</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-may.html'">
+                        <div class="month-name">May</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-june.html'">
+                        <div class="month-name">June</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-july.html'">
+                        <div class="month-name">July</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-august.html'">
+                        <div class="month-name">August</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-september.html'">
+                        <div class="month-name">September</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-october.html'">
+                        <div class="month-name">October</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-november.html'">
+                        <div class="month-name">November</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+
+                    <div class="month-card" onclick="window.location.href='dx4-december.html'">
+                        <div class="month-name">December</div>
+                        <div class="month-subtitle">2025 Results</div>
+                        <button class="month-btn">View Data</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <p class="info-text">
+                    Each month contains detailed analysis including trade entries, exits, win rates, 
+                    profit/loss data, and strategy performance metrics for the Dx4 trading system.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click animation for month cards
+        document.querySelectorAll('.month-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on the button directly
+                if (e.target.classList.contains('month-btn')) {
+                    return;
+                }
+                
+                // Add click effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Add hover sound effect simulation (visual feedback)
+        document.querySelectorAll('.month-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
